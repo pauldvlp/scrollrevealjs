@@ -13,12 +13,11 @@ Hacerlo dentro y al final de la etiqueta **head**
 ```
 ## Uso
 
-Invocar la funcion **scrollReveal()**
+Invocar la funcion **scrollReveal()** dentro de un etiqueta **script** al final y dentro del **body**.
 
-    <script type="text/javascript">
 ```js
       scrollReveal('elementHTML', 'mode-function', {})
 ```
-    </script>
+
 El primer parametro es el selector de los elementos HTML que se desean animar y es el **único obligatorio**.
 <br>Los selectores son los mismo que los de CSS asi que puedes usar el nombre de la **etiqueta, clase, id y  atributos**
