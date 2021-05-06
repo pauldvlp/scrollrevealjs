@@ -1,0 +1,39 @@
+.sr-scale {
+  transform: scale(.5);
+  opacity: 0;
+}
+
+.show-sr-scale {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.sr-btt {
+  transform: translate(0, 100%);
+  opacity: 0;
+}
+
+.show-sr-btt {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.sr-ltr {
+  transform: translate(-100%, 0);
+  opacity: 0;
+}
+
+.show-sr-ltr {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.sr-rtl {
+  transform: translate(100%, 0);
+  opacity: 0;
+}
+
+.show-sr-rtl {
+  transform: translate(0, 0);
+  opacity: 1;
+}
