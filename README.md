@@ -16,7 +16,7 @@ Hacerlo dentro y al final de la etiqueta **head**
 Invocar la funcion **scrollReveal()** dentro de un etiqueta **script** al final y dentro del **body**.
 
 ```js
-      scrollReveal('elementHTML', 'mode-function', {})
+    scrollReveal('elementHTML', 'mode-function', {})
 ```
 
 El primer parametro es el selector de los elementos HTML que se desean animar y es el **único obligatorio**.
