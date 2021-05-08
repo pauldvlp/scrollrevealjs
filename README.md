@@ -9,7 +9,7 @@ Hacerlo dentro y al final de la etiqueta **head**
 
 ```html
     <link rel="stylesheet" href="scroll-reveal.min.css">
-    <script type="text/javascript" src="scroll-reveal.min.js"></script>
+    <script src="scroll-reveal.min.js"></script>
 ```
 ## Uso
 
