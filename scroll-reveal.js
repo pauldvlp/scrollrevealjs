@@ -7,17 +7,22 @@ function scrollReveal(element, mode, {
   margin = "0px",
   speed = "fast"
 }) {
+  
 //Definicion de la velocidad de la transision.
   if (speed === "slow") speed = 1;
   if (speed === "medium") speed = .75;
   if (speed === "fast") speed = .5;
+
 //Seleccionando los elementos que desea animar.
   const elements = document.querySelectorAll(element);
+
 //añadiendo clases y algunos estilos a los elementos y al padre de los elementos.
-  elements.forEach(el => el.classList.add(`sr-${animation}`));
-  elements.forEach(el => el.style.transition = `${speed}s`);
-  elements.forEach(el => el.parentNode.style.overflowX = "hidden");
-  elements.forEach(el => el.parentNode.style.overflowY = "hidden");
+  elements.forEach(el => {
+    el.classList.add(`sr-${animation}`);
+    el.style.transition = `${speed}s`;
+    el.parentNode.style.overflowX = "hidden";
+    el.parentNode.style.overflowY = "hidden";
+  });
   
 //funcion @repeat. Hace que la animacion se repita si se vuelve a visualizar.
   const repeat = (entries, observer) => {
@@ -52,10 +57,12 @@ function scrollReveal(element, mode, {
   }
 //Inicializando la variable que contendra una de las dos funciones anteriores.
   let whatFunction;
+
 //Se le asigna la funcion a la variable anterior.
   if (mode === "repeat") whatFunction = repeat;
   if (mode === "justone") whatFunction = justOne;
   if (animation === "btt") whatFunction = justOne;
+
 //Creando el observador y añadiendoselo a los elementos.
   elements.forEach(el => {
     const observer = new IntersectionObserver(whatFunction, { rootMargin: margin });
