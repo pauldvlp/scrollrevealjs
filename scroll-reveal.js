@@ -12,9 +12,11 @@ function scrollReveal(
   }
 ) {
   //Definicion de la velocidad de la transision.
+  if (speed === "verySlow") speed = 1.25;
   if (speed === "slow") speed = 1;
   if (speed === "medium") speed = 0.75;
   if (speed === "fast") speed = 0.5;
+  if (speed === "vreyFast") speed = 0.25;
 
   //Seleccionando los elementos que desea animar.
   const elements = document.querySelectorAll(element);

@@ -1,39 +1,59 @@
 .sr-scale {
   transform: scale(.75);
   opacity: 0;
+  visibility: hidden;
 }
 
 .show-sr-scale {
   transform: scale(1);
   opacity: 1;
+  visibility: visible;
+}
+
+.sr-ttb {
+  transform: translate(0, -50%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.show-sr-ttb {
+  transform: translate(0, 0);
+  opacity: 1;
+  visibility: visible;
 }
 
 .sr-btt {
   transform: translate(0, 50%);
   opacity: 0;
+  visibility: hidden;
 }
 
 .show-sr-btt {
   transform: translate(0, 0);
   opacity: 1;
+  visibility: visible;
 }
 
 .sr-ltr {
   transform: translate(-50%, 0);
   opacity: 0;
+  visibility: hidden;
 }
 
 .show-sr-ltr {
   transform: translate(0, 0);
   opacity: 1;
+  visibility: visible;
 }
 
 .sr-rtl {
   transform: translate(50%, 0);
   opacity: 0;
+  visibility: hidden;
 }
 
 .show-sr-rtl {
   transform: translate(0, 0);
   opacity: 1;
+  visibility: visible;
 }
