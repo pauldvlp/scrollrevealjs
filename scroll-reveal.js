@@ -9,6 +9,7 @@ function scrollReveal(
     delayHide = 0,
     margin = "0px",
     speed = "fast",
+    treshold = 1
   }
 ) {
   //Definicion de la velocidad de la transision.
@@ -66,6 +67,7 @@ function scrollReveal(
   elements.forEach((el) => {
     const observer = new IntersectionObserver(whatFunction, {
       rootMargin: margin,
+      treshold: treshold
     });
     observer.observe(el);
   });
