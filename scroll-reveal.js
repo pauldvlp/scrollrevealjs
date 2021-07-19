@@ -1,74 +1,75 @@
-// Definicion de la funcion y sus parametros
-function scrollReveal(
-  element,
-  mode,
-  {
-    animation = "scale",
-    delay = undefined,
-    delayShow = 0,
-    delayHide = 0,
-    margin = "0px",
-    speed = "fast",
-    treshold = 1
+function scrollReveal(element, {
+  delay = '0s',
+  distance = '0',
+  duration = '1s',
+  opacity = 0,
+  origin = 'bottom',
+  scale = 0.75,
+  repeat = true,
+  threshold = 0,
+}) {
+
+  function setPropertys (el) {
+    el.style.transform = `scale(${scale})`
+    el.style.transitionDelay = delay;
+    el.style.transitionDuration = duration;
+    if (origin.toLowerCase() === 'bottom') el.style.bottom = '-' + distance;
+    if (origin.toLowerCase() === 'top') el.style.top = '-' + distance;
+    if (origin.toLowerCase() === 'left') el.style.left = '-' + distance;
+    if (origin.toLowerCase() === 'right') el.style.right = '-' + distance;
+    el.style.opacity = opacity;
   }
-) {
-  //Definicion de la velocidad de la transision.
-  if (speed === "verySlow") speed = 1.25;
-  if (speed === "slow") speed = 1;
-  if (speed === "medium") speed = 0.75;
-  if (speed === "fast") speed = 0.5;
-  if (speed === "veryFast") speed = 0.25;
 
-  //Seleccionando los elementos que desea animar.
-  const elements = document.querySelectorAll(element);
+  function setPropertysOrigin (el) {
+    el.style.transform = 'scale(1)'
+    if (origin.toLowerCase() === 'bottom') el.style.bottom = '0'
+    if (origin.toLowerCase() === 'top') el.style.top = '0'
+    if (origin.toLowerCase() === 'left') el.style.left = '0'
+    if (origin.toLowerCase() === 'right') el.style.right = '0'
+    el.style.opacity = '1';
+  }
 
-  //añadiendo clases y algunos estilos a los elementos y al padre de los elementos.
-  elements.forEach((el) => {
-    el.classList.add(`sr-${animation}`);
-    el.style.transition = `${speed}s`;
-    el.parentNode.style.overflowX = "hidden";
-    el.parentNode.style.overflowY = "hidden";
-  });
+  function repeatReveal (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) setPropertysOrigin(entry.target)
+      else setPropertys(entry.target);
+    });
+  }
 
-  //funcion @repeat. Hace que la animacion se repita si se vuelve a visualizar.
-  const repeat = (entries, observer) => {
+  function justOne (entries, scrollRevealObserver) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add(`show-sr-${animation}`);
-        }, delay || delayShow);
-      } else {
-        setTimeout(() => {
-          entry.target.classList.remove(`show-sr-${animation}`);
-        }, delay || delayHide);
+          setPropertysOrigin(entry.target)
+          scrollRevealObserver.unobserve(entry.target);
       }
     });
-  };
-  //funcion @justOne. La animacion solo se produce una vez y los elementos quedan en estado estatico.
-  const justOne = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add(`show-sr-${animation}`);
-          observer.disconnect();
-        }, delay || delayShow);
-      }
-    });
-  };
-  //Inicializando la variable que contendra una de las dos funciones anteriores.
-  let whatFunction;
+  }
 
-  //Se le asigna la funcion a la variable anterior.
-  if (mode === "repeat") whatFunction = repeat;
-  if (mode === "justone") whatFunction = justOne;
-  if (animation === "btt") whatFunction = justOne;
+  let whatTheFunction;
+  repeat ? whatTheFunction = repeatReveal : whatTheFunction = justOne;
 
-  //Creando el observador y añadiendoselo a los elementos.
-  elements.forEach((el) => {
-    const observer = new IntersectionObserver(whatFunction, {
-      rootMargin: margin,
-      treshold: treshold
-    });
-    observer.observe(el);
+  const scrollRevealObserver = new IntersectionObserver(whatTheFunction, {
+    root: null,
+    rootMargin: '0px',
+    threshold: threshold,
   });
+
+  if (typeof element === 'string' || element instanceof Node) {
+    if (typeof element === 'string') {
+      const elementSR = document.querySelector(element);
+      setPropertys(elementSR)
+      scrollRevealObserver.observe(elementSR)
+    } else {
+      setPropertys(element)
+      scrollRevealObserver.observe(element);
+    }
+  }
+
+  if (element instanceof Array || element instanceof NodeList) {
+    element.forEach((el) => {
+      setPropertys(el)
+      scrollRevealObserver.observe(el);
+    });
+  }
 }
+

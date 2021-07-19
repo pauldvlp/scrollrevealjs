@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Reveal</title>
+
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #0e141f;
+    }
+    .container {
+      max-width: 1024px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-gap: 2rem;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .container > div,
+    .container-mobile > div {
+      display: flex;
+      flex-flow: column;
+      justify-content: stretch;
+      min-height: 3000px;
+    }
+
+    .scroll-reveal {
+      position: relative;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+    .container-mobile {
+      display: none;
+    }
+    @media screen and (max-width:768px) {
+      .container-mobile {
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem;
+      }
+      .container {
+        display: none;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+    </div>
+    <div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+    </div>
+    <div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+    </div>
+    <div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+    </div>
+    <div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+    </div>
+    <div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+    </div>
+  </div>
+  <div class="container-mobile">
+    <div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+    </div>
+    <div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+    </div>
+    <div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+      <div class="scroll-reveal"></div>
+    </div>
+  </div>
+
+  <script src="scroll-reveal.js"></script>
+  <script>
+    const colors = ['#553ab8','#007d97','#25a954','#ffcb36','#ff7c35','#e31d65'],
+      elements = document.querySelectorAll('.scroll-reveal');
+
+    function randomNumberInt (min, max) {
+      return Math.ceil(Math.random() * (max - min)) + min;
+    }
+
+    elements.forEach(el => {
+      el.style.backgroundColor = colors[randomNumberInt(0,5)];
+      el.style.flexGrow = randomNumberInt(2,9);
+    })
+
+    const elementsReveal = document.querySelectorAll('.scroll-reveal');
+
+    scrollReveal(elementsReveal, {
+      distance : '2.5%'
+    })
+  </script>
+
+</body>
+</html>
