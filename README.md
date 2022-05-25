@@ -8,8 +8,9 @@ Este es mi segundo proyecto... una pequeña libreria de JavaScript y CSS y su fu
 Hacerlo dentro y al final de la etiqueta **body**
 
 ```html
-<script src="scrollreveal.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/panlar/scrollreveal/scrollreveal.min.js"></script>
 ```
+
 ### Sintaxis
 
 ```js
