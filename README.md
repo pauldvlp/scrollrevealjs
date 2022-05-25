@@ -16,7 +16,7 @@ Hacerlo dentro y al final de la etiqueta **body**
 scrollReveal(element[, options])
 ```
 
-### Parameters
+### Parametros
 
 #### ```element```
 - ```value : String | Node | Array | NodeList ```
