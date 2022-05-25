@@ -10,15 +10,15 @@ Hacerlo dentro y al final de la etiqueta **body**
 ```html
 <script src="scrollreveal.min.js"></script>
 ```
-## Uso
-
-Invocar la funcion **scrollReveal()** dentro de un etiqueta **script** al final y dentro del **body** o en un archivo **js** externo.
+### Sintaxis
 
 ```js
 scrollReveal(element[, options])
 ```
 
-### element
+### Parameters
+
+#### ```element```
 - ```value : String | Node | Array | NodeList ```
 
 Es el elemento o elementos a los que desees agregar la animacion, este parametro puede ser:
@@ -26,10 +26,8 @@ Es el elemento o elementos a los que desees agregar la animacion, este parametro
 - **String** : Selector CSS *(Solo selecciona el primer elemento que coincida con ese selector)*
 - **Array** || **NodeList** : Arreglo o Lista de Nodos del documento
 
-### options
+#### ```options```
 - ```value : Object ```
-
-Es un objeto con las siguientes propiedades
 
 **Default**
 ```js
@@ -44,7 +42,7 @@ Es un objeto con las siguientes propiedades
 }
 ```
 
-### options.delay
+#### ```options.delay```
 - ```value : String ```
 
 Es el tiempo de retraso que tendra la animacion al aparecer y desaparecer.
@@ -54,7 +52,7 @@ Es el tiempo de retraso que tendra la animacion al aparecer y desaparecer.
 { delay: '0s' }
 ```
 
-### options.distance
+#### ```options.distance```
 - ```value : String```
 
 Es la distancia en cualquier unidad de CSS que tendra desde el posicion inicial hasta la posicion final.
@@ -64,7 +62,7 @@ Es la distancia en cualquier unidad de CSS que tendra desde el posicion inicial 
 { distance: '100px' }
 ```
 
-### options.origin
+#### ```options.origin```
 - ```value : String - ['left', 'top', 'right', 'bottom']```
 
 Es la direccion desde la cual la animacion iniciara, si su valor el ```left``` al mostrar el elemento este vendra desde la izquierda.
@@ -74,7 +72,7 @@ Es la direccion desde la cual la animacion iniciara, si su valor el ```left``` a
 { origin: 'bottom' }
 ```
 
-### options.duration
+#### ```options.duration```
 - ```value : String```
 
 Duracion que tendra la animacion al aparecer el elemento, la duracion se tendra en cuenta despues del ```options.delay```
@@ -84,7 +82,7 @@ Duracion que tendra la animacion al aparecer el elemento, la duracion se tendra 
 { duration: '1s' }
 ```
 
-### options.opacity
+#### ```options.opacity```
 - ```value : Number```
 
 Es la opacidad del elemento con la que empezara la animacion, si su valor es ```0.5``` al comenzar la animacion de revelacion el elemento tendra un 50% de opacidad.
@@ -94,7 +92,7 @@ Es la opacidad del elemento con la que empezara la animacion, si su valor es ```
 { opacity: 0 }
 ```
 
-### options.scale
+#### ```options.scale```
 - ```value : Number```
 
 Es la escala del elemento con la que empezara la animacion, si su valor es ```0.5``` al comenzar la animacion de revelacion el elemento tendra un valor relativo al mismo del 50%.
@@ -104,7 +102,7 @@ Es la escala del elemento con la que empezara la animacion, si su valor es ```0.
 { scale: 0.75 }
 ```
 
-### options.repeat
+#### ```options.repeat```
 - ```value : Boolean```
 
 Si la opcion es ```true``` la animacion se repetira cada vez que el/los elementos entren al viewport, si es ```false``` la animacion solo se ejecutara una vez.
