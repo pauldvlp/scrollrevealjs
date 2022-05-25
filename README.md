@@ -1,4 +1,4 @@
-# Scroll-Reveal-JS😎🤩
+# scrollreveal.js 😎🤩
 Mi primer libreria.📖💻
 
 Este es mi segundo proyecto... una pequeña libreria de JavaScript y CSS y su funcion es hacer el efecto de scroll-reveal (revelar al desplazar). Los elementos van apareciendo a medida vas scrolleando la pagina.
@@ -8,7 +8,7 @@ Este es mi segundo proyecto... una pequeña libreria de JavaScript y CSS y su fu
 Hacerlo dentro y al final de la etiqueta **body**
 
 ```html
-<script src="scroll-reveal.min.js"></script>
+<script src="scrollreveal.min.js"></script>
 ```
 ## Uso
 
@@ -40,7 +40,6 @@ Es un objeto con las siguientes propiedades
   origin = 'bottom',
   scale = 0.75,
   repeat = true,
-  threshold = 0,
 }
 ```
 
@@ -102,4 +101,14 @@ Es la escala del elemento con la que empezara la animacion, si su valor es ```0.
 **Default**
 ```js
 { scale: 0.75 }
+```
+
+### options.repeat
+- ```value : Boolean```
+
+Si la opcion es ```true``` la animacion se repetira cada vez que el/los elementos entren al viewport, si es ```false``` la animacion solo se ejecutara una vez.
+
+**Default**
+```js
+{ repeat: true }
 ```
