@@ -19,6 +19,7 @@ scrollReveal(element[, options])
 ```
 
 ### element
+- ```value : String | Node | Array | NodeList ```
 
 Es el elemento o elementos a los que desees agregar la animacion, este parametro puede ser:
 - **Node** : Nodo del documento;
