@@ -10,7 +10,6 @@ const scrollReveal = (
     repeat = true,
   } = {}
 ) => {
-  console.log({ delay, distance, duration, opacity, origin, scale, repeat });
   const setPropertys = (el) => {
     el.style.position = 'relative';
     el.style.transform = `scale(${scale})`;
